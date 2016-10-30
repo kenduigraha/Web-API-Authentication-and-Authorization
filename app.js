@@ -13,6 +13,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+//config
+const config = require('./config/config.json')
+
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // session require
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -57,7 +60,7 @@ app.use('/users', users);
 // session
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 app.use(session({
-  secret : 'secret',
+  secret : config.secret,
   resave : false,
   saveUninitialized : false,
   cookie : {
