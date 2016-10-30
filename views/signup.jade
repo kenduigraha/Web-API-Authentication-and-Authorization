@@ -2,6 +2,8 @@ extends navbar
 
 block content
   h1 Sign Up
+  if err_message
+    p(style="color: red") #{err_message}
   form(action="/signup" method="post")
     .form-group
       label(for="username") username 

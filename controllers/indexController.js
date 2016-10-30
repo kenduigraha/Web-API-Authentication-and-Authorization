@@ -19,7 +19,7 @@ let processSignUp = (req, res, next) => {
     if(err) {
       console.log(err)
 
-      res.redirect('/signup', {message: message})
+      res.render('signup', {title: 'Student\'s Apps', err_message: err.message})
     }else{
         passport.authenticate('local')(req, res, () => {
           req.session.save((err) => {
