@@ -28,7 +28,8 @@ Implement authentication and authorization web API using node.js and express fra
 4. passport-local : ```npm install --save passport-local```
 5. passport-local-mongoose : ```npm install --save passport-local-mongoose```
 6. mongodb : ``` npm install --save mongodb```
-6. mongoose : ``` npm install --save mongoose```
+7. mongoose : ``` npm install --save mongoose```
+8. express-session : ```npm install --save express-session```
 
 ## Database's Structure
 
