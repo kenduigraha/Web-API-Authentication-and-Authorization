@@ -19,6 +19,10 @@ router.get('/login', controller.viewLogin);
 
 /* process login page. */
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), controller.processLogin);
+
+/* show login form. */
+router.get('/logout', controller.processLogout);
+
 //
 // /* show add new data form. */
 // router.get('/add', controller.viewAddData);

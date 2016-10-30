@@ -7,8 +7,12 @@ block navbar
         .navbar-header
           a(class="navbar-brand" href="/") #{title}
         ul.nav.navbar-nav
+          if !user
             li
               a(href="/login") Log In
             li
-              a(href="/signup") Sign Up          
+              a(href="/signup") Sign Up
+          else
+            li
+              a(href="/logout") Log Out
     //- block content

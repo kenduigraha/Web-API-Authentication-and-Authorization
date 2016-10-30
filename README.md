@@ -45,6 +45,7 @@ Implement authentication and authorization web API using node.js and express fra
 | http://localhost:3000/ | GET | show user list if login | student/admin |
 | http://localhost:3000/login | GET | show form login | student/admin |
 | http://localhost:3000/login | POST | process form login | student/admin |
+| http://localhost:3000/logout | GET | process logout | student/admin |
 | http://localhost:3000/signup | GET | show form signup | student/admin |
 | http://localhost:3000/signup | POST | process form signup | student/admin |
 | http://localhost:3000/add | GET | show form add new user | admin |

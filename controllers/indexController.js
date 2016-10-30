@@ -40,14 +40,12 @@ let viewLogin = (req, res, next) => {
 }
 
 let processLogin = (req, res, next) => {
-  console.log(`aaa`);
   res.redirect('/')
-  // User.findOne({
-  //   username: req.body.username
-  // }, (err, user) => {
-  //   console.log(`user :` + user);
-  //   res.render('index', {title: 'Student\'s Apps', user: user})
-  // })
+}
+
+let processLogout = (req, res, next) => {
+  req.logout()
+  res.redirect('/')
 }
 
 let viewAddData = (req, res, next) => {
@@ -76,6 +74,7 @@ module.exports = {
   processSignUp: processSignUp,
   viewLogin: viewLogin,
   processLogin: processLogin,
+  processLogout: processLogout,
   viewAddData: viewAddData,
   processAddData: processAddData,
   viewEditData: viewEditData,
