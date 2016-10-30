@@ -4,18 +4,21 @@ var router = express.Router();
 var controller = require('../controllers/indexController')
 // passport
 const passport = require('passport');
+//middleware
+const middleware = require('../helpers/checkAuth')
+
 
 /* show home page. */
 router.get('/', controller.viewHome);
 
 /* show signup form. */
-router.get('/signup', controller.viewSignUp);
+router.get('/signup', middleware.checkSignup, controller.viewSignUp);
 
 /* process signup page. */
 router.post('/signup', controller.processSignUp);
 
 /* show login form. */
-router.get('/login', controller.viewLogin);
+router.get('/login', middleware.checkLogin, controller.viewLogin);
 
 /* process login page. */
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), controller.processLogin);
