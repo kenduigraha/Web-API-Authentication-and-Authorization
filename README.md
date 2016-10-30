@@ -89,6 +89,37 @@ Implement authentication and authorization web API using node.js and express fra
 ## App's Structure
 
 ```
+.
+├── README.md
+├── app.js
+├── bin
+│   └── www
+├── config
+│   └── config.json
+├── controllers
+│   └── indexController.js
+├── helpers
+│   └── loginProperty.js
+├── models
+│   └── user.js
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+├── routes
+│   └── index.js
+└── views
+    ├── editData.jade
+    ├── error.jade
+    ├── footer.jade
+    ├── index.jade
+    ├── layout.jade
+    ├── login.jade
+    ├── navbar.jade
+    └── signup.jade
+
+11 directories, 17 files
 ```
 
 
