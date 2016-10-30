@@ -19,6 +19,7 @@ Implement authentication and authorization web API using node.js and express fra
 6. passport-local-mongoose
 7. mongodb
 8. mongoose
+9. express-session
 
 ## How To Install Dependencies
 1. express generator : ```express .```
