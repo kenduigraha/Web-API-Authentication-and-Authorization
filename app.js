@@ -8,8 +8,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// routes require
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var routesLogin = require('./routes/login');
+var routesSignup = require('./routes/signup');
+var routesAdd = require('./routes/add');
+var routesEdit = require('./routes/edit');
+var routesDelete = require('./routes/delete');
 
 var app = express();
 
@@ -33,6 +40,7 @@ const LocalStrategy   = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/db_users');
+
 // Schema
 const User = require('./models/user')
 
@@ -54,7 +62,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 app.use('/', routes);
-app.use('/users', users);
+app.use('/login', routesLogin);
+app.use('/signup', routesSignup);
+app.use('/add', routesAdd);
+app.use('/edit', routesEdit);
+app.use('/delete', routesDelete);
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // session
