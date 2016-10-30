@@ -3,7 +3,7 @@
 ## Introduction
 Implement authentication and authorization web API using node.js and express framework
 
-## How To
+## How To Run Apps
 > npm install
 
 > npm start
@@ -19,6 +19,15 @@ Implement authentication and authorization web API using node.js and express fra
 6. passport-local-mongoose
 7. mongodb
 8. mongoose
+
+## How To Install Dependencies
+1. express generator : ```express .```
+2. nodemon : ```npm install --save-dev nodemon```
+3. passport : ```npm install --save passport```
+4. passport-local : ```npm install --save passport-local```
+5. passport-local-mongoose : ```npm install --save passport-local-mongoose```
+6. mongodb : ``` npm install --save mongodb```
+6. mongoose : ``` npm install --save mongoose```
 
 ## Database's Structure
 
@@ -42,10 +51,43 @@ Implement authentication and authorization web API using node.js and express fra
 | http://localhost:3000/edit/{id} | POST | process form edit user | admin |
 | http://localhost:3000/delete/{id} | GET | delete specific user | admin |
 
+
+## package.json
+
+```
+{
+  "name": "web_api_authentication_and_authorization",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.5",
+    "morgan": "~1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
+
+```
+
 ## App's Structure
 
 ```
 ```
+
 
 ## Contributor
 Ken Duigraha Putra &copy; 2016
