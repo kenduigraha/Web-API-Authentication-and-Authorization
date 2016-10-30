@@ -3,12 +3,28 @@ extends navbar
 block content
   .container
     h1= title
-    if user
+    if !user
+      p Welcome to #{title}
+    else
       p 
         | Hello, #{user.username} !
         br
         | Your Role : #{user.role}
         br
         | Your Email : #{user.email}
-    else
-      p Welcome to #{title}
+      table.table.table-hover
+        thead
+          tr
+            th username
+            th role
+            th email
+            if user.role === "Admin"
+              th action
+        tbody
+          - for(var i = 0 ; i < user.length ; i++)
+            tr
+              td #{user.username}
+              td #{user.role}
+              td #{user.email}
+              if user.role === "Admin"
+                td test
