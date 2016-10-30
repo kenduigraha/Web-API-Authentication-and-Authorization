@@ -12,8 +12,6 @@ var bodyParser = require('body-parser');
 // routes require
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 var routes = require('./routes/index');
-var routesLogin = require('./routes/login');
-var routesSignup = require('./routes/signup');
 
 var app = express();
 
@@ -59,8 +57,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 app.use('/', routes);
-app.use('/login', routesLogin);
-app.use('/signup', routesSignup);
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // session
