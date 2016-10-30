@@ -7,7 +7,11 @@ const helper = require('../helpers/loginProperty')
 let viewHome = (req, res, next) => {
   if(typeof req.user != "undefined"){
     helper.loginProperty(req.user, (userLogin) => {
-      res.render('index', {title: 'Student\'s Apps', user: userLogin})
+      User.find({
+        role: 'Student'
+      }, (err, dataStudent) => {
+          res.render('index', {title: 'Student\'s Apps', user: userLogin, dataStudent: dataStudent})
+      })
     })
   }else{
     res.render('index', {title: 'Student\'s Apps'})
@@ -55,14 +59,6 @@ let processLogout = (req, res, next) => {
   res.redirect('/')
 }
 
-let viewAddData = (req, res, next) => {
-  res.render('addData', {title: 'Student\'s Apps'})
-}
-
-let processAddData = (req, res, next) => {
-  res.render('index', {title: 'Student\'s Apps'})
-}
-
 let viewEditData = (req, res, next) => {
   res.render('editData', {title: 'Student\'s Apps'})
 }
@@ -82,8 +78,6 @@ module.exports = {
   viewLogin: viewLogin,
   processLogin: processLogin,
   processLogout: processLogout,
-  viewAddData: viewAddData,
-  processAddData: processAddData,
   viewEditData: viewEditData,
   processEditData: processEditData,
   processDelete: processDelete

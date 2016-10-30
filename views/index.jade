@@ -21,10 +21,12 @@ block content
             if user.role === "Admin"
               th action
         tbody
-          - for(var i = 0 ; i < user.length ; i++)
+          - for(var i = 0 ; i < dataStudent.length ; i++)
             tr
-              td #{user.username}
-              td #{user.role}
-              td #{user.email}
+              td #{dataStudent[i].username}
+              td #{dataStudent[i].role}
+              td #{dataStudent[i].email}
               if user.role === "Admin"
-                td test
+                td
+                  a(href="/edit/#{dataStudent[i]._id}" class="btn btn-info") Edit
+                  a(href="/delete/#{dataStudent[i]._id}" class="btn btn-danger") Delete

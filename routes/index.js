@@ -24,12 +24,6 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
 router.get('/logout', controller.processLogout);
 
 //
-// /* show add new data form. */
-// router.get('/add', controller.viewAddData);
-//
-// /* process add new data form. */
-// router.post('/add', controller.processAddData);
-//
 // /* show edit a data form. */
 // router.get('/edit/:id', controller.viewEditData);
 //
