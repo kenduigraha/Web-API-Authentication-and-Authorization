@@ -7,8 +7,8 @@ let Schema = mongoose.Schema
 
 let UserSchema = new Schema({
   username : String,
-  email: String,
-  role: String
+  email : String,
+  role : String
 })
 
 UserSchema.plugin(passportLocalMongoose)

@@ -1,10 +1,17 @@
 'use strict'
 const User = require('../models/user')
 const passport = require('passport')
+//helper
+const helper = require('../helpers/loginProperty')
 
 let viewHome = (req, res, next) => {
-  // console.log(req.user);
-  res.render('index', {title: 'Student\'s Apps', user: req.user})
+  if(typeof req.user != "undefined"){
+    helper.loginProperty(req.user, (userLogin) => {
+      res.render('index', {title: 'Student\'s Apps', user: userLogin})
+    })
+  }else{
+    res.render('index', {title: 'Student\'s Apps'})
+  }
 }
 
 let viewSignUp = (req, res, next) => {
