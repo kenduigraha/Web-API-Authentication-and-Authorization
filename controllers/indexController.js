@@ -44,7 +44,7 @@ module.exports = {
   viewHome: viewHome,
   viewSignUp: viewSignUp,
   processSignUp: processSignUp,
-  viewLogin: ViewLogin,
+  viewLogin: viewLogin,
   processLogin: processLogin,
   viewAddData: viewAddData,
   processAddData: processAddData,
