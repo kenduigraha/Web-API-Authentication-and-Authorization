@@ -3,8 +3,8 @@ const User = require('../models/user')
 const passport = require('passport')
 
 let viewHome = (req, res, next) => {
-  console.log(req.user);
-  res.render('index', {title: 'Student\'s Apps'})
+  // console.log(req.user);
+  res.render('index', {title: 'Student\'s Apps', user: req.user})
 }
 
 let viewSignUp = (req, res, next) => {

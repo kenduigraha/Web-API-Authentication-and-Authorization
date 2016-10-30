@@ -4,6 +4,11 @@ block content
   .container
     h1= title
     if user
-      p #{user}
+      p 
+        | Hello, #{user.username} !
+        br
+        | Your Role : #{user.role}
+        br
+        | Your Email : #{user.email}
     else
       p Welcome to #{title}
