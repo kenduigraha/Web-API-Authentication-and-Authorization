@@ -3,18 +3,22 @@ extends navbar
 block content
   .container
     h1 Sign Up
-    if err_message
-      p(style="color: red") #{err_message}
     form(action="/signup" method="post")
       .form-group
         label(for="username") username 
         input(type="text" class="form-control" name="username" id="username")
+        if err && err.name === "MissingUsernameError"
+          p(style="color: red") #{err.message}
       .form-group
         label(for="password") password
         input(type="password" class="form-control" name="password" id="password")
+        if err && err.name === "MissingPasswordError"
+          p(style="color: red") #{err.message}
       .form-group
         label(for="email") email
         input(type="text" class="form-control" name="email" id="email")
+        if err && err.name === "MissingEmailError"
+          p(style="color: red") #{err.message}
       .form-group
         label(for="role") role
         select(name="role" class="form-control" id="role")

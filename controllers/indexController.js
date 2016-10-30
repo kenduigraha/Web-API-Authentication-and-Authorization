@@ -31,7 +31,7 @@ let processSignUp = (req, res, next) => {
     if(err) {
       console.log(err)
 
-      res.render('signup', {title: 'Student\'s Apps', err_message: err.message})
+      res.render('signup', {title: 'Student\'s Apps', err: err})
     }else{
         passport.authenticate('local')(req, res, () => {
           req.session.save((err) => {
