@@ -1,0 +1,17 @@
+extends navbar
+
+block content
+  .container
+    h1 Edit
+    if err_message
+      p(style="color: red") #{err_message}
+    form(action="/edit" method="post")
+      .form-group
+        label(for="username") username 
+        input(type="text" class="form-control" name="username" id="username" value="#{userEdit.username}")
+      .form-group
+        label(for="email") email
+        input(type="text" class="form-control" name="email" id="email"  value="#{userEdit.email}")
+      .form-group
+        input(type="hidden" class="form-control" name="id" value="#{userEdit._id}")
+      button(type="submit" class="btn btn-primary") Edit

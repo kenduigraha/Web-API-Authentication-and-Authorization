@@ -23,14 +23,13 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
 /* show login form. */
 router.get('/logout', controller.processLogout);
 
-//
-// /* show edit a data form. */
-// router.get('/edit/:id', controller.viewEditData);
-//
-// /* process edit a data form. */
-// router.post('/edit', controller.processEditData);
-//
-// /* process delete data form. */
-// router.get('/delete/:id', controller.processDelete);
+/* show edit a data form. */
+router.get('/edit/:id', controller.viewEditData);
+
+/* process edit a data form. */
+router.post('/edit', controller.processEditData);
+
+/* process delete data form. */
+router.get('/delete/:id', controller.processDelete);
 
 module.exports = router;

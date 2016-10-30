@@ -60,15 +60,28 @@ let processLogout = (req, res, next) => {
 }
 
 let viewEditData = (req, res, next) => {
-  res.render('editData', {title: 'Student\'s Apps'})
+  User.findOne({
+    _id: req.params.id
+  }, 'username email', (err, userEdit) => {
+    res.render('editData', {title: 'Student\'s Apps', userEdit: userEdit})
+  })
 }
 
 let processEditData = (req, res, next) => {
-  res.render('index', {title: 'Student\'s Apps'})
+  User.findOneAndUpdate({
+    _id: req.body.id
+  }, req.body, (err, userUpdated) => {
+    res.redirect('/')
+  })
 }
 
 let processDelete = (req, res, next) => {
-  res.render('index', {title: 'Student\'s Apps'})
+  User.findOneAndRemove({
+    _id: req.params.id
+  }, (err) => {
+    if(err) console.log(err)
+    res.redirect('/')
+  })
 }
 
 module.exports = {

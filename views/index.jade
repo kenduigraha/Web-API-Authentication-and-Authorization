@@ -29,4 +29,4 @@ block content
               if user.role === "Admin"
                 td
                   a(href="/edit/#{dataStudent[i]._id}" class="btn btn-info") Edit
-                  a(href="/delete/#{dataStudent[i]._id}" class="btn btn-danger") Delete
+                  a(href="/delete/#{dataStudent[i]._id}" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete? ')") Delete
