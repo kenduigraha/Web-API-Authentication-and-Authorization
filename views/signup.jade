@@ -1,22 +1,23 @@
 extends navbar
 
 block content
-  h1 Sign Up
-  if err_message
-    p(style="color: red") #{err_message}
-  form(action="/signup" method="post")
-    .form-group
-      label(for="username") username 
-      input(type="text" class="form-control" name="username" id="username")
-    .form-group
-      label(for="password") password
-      input(type="password" class="form-control" name="password" id="password")
-    .form-group
-      label(for="email") email
-      input(type="text" class="form-control" name="email" id="email")
-    .form-group
-      label(for="role") role
-      select(name="role" class="form-control" id="role")
-        option(value="Admin") Admin
-        option(value="Student") Student
-    button(type="submit" class="btn btn-primary") Submit
+  .container
+    h1 Sign Up
+    if err_message
+      p(style="color: red") #{err_message}
+    form(action="/signup" method="post")
+      .form-group
+        label(for="username") username 
+        input(type="text" class="form-control" name="username" id="username")
+      .form-group
+        label(for="password") password
+        input(type="password" class="form-control" name="password" id="password")
+      .form-group
+        label(for="email") email
+        input(type="text" class="form-control" name="email" id="email")
+      .form-group
+        label(for="role") role
+        select(name="role" class="form-control" id="role")
+          option(value="Admin") Admin
+          option(value="Student") Student
+      button(type="submit" class="btn btn-primary") Submit

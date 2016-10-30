@@ -3,6 +3,7 @@ const User = require('../models/user')
 const passport = require('passport')
 
 let viewHome = (req, res, next) => {
+  console.log(req.user);
   res.render('index', {title: 'Student\'s Apps'})
 }
 
@@ -26,7 +27,7 @@ let processSignUp = (req, res, next) => {
             if(err){
               next(err)
             }else{
-              res.redirect('/'})
+              res.redirect('/')
             }
           })
         })
@@ -39,7 +40,14 @@ let viewLogin = (req, res, next) => {
 }
 
 let processLogin = (req, res, next) => {
-  res.render('index', {title: 'Student\'s Apps'})
+  console.log(`aaa`);
+  res.redirect('/')
+  // User.findOne({
+  //   username: req.body.username
+  // }, (err, user) => {
+  //   console.log(`user :` + user);
+  //   res.render('index', {title: 'Student\'s Apps', user: user})
+  // })
 }
 
 let viewAddData = (req, res, next) => {

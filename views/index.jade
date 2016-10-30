@@ -1,7 +1,9 @@
 extends navbar
 
 block content
-  h1= title
-  p Welcome to #{title}
-  if user
-    p #{user}
+  .container
+    h1= title
+    if user
+      p #{user}
+    else
+      p Welcome to #{title}

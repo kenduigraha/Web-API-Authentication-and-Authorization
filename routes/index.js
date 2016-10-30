@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
+// controller
 var controller = require('../controllers/indexController')
+// passport
+const passport = require('passport');
 
 /* show home page. */
 router.get('/', controller.viewHome);
@@ -12,10 +15,10 @@ router.get('/signup', controller.viewSignUp);
 router.post('/signup', controller.processSignUp);
 
 /* show login form. */
-// router.get('/login', controller.viewLogIn);
-//
-// /* process login page. */
-// router.post('/login', controller.processLogin);
+router.get('/login', controller.viewLogin);
+
+/* process login page. */
+router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), controller.processLogin);
 //
 // /* show add new data form. */
 // router.get('/add', controller.viewAddData);

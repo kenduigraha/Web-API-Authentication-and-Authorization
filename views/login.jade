@@ -1,0 +1,15 @@
+extends navbar
+
+block content
+  .container
+    h1 Login
+    if err_message
+      p(style="color: red") #{err_message}
+    form(action="/login" method="post")
+      .form-group
+        label(for="username") username 
+        input(type="text" class="form-control" name="username" id="username")
+      .form-group
+        label(for="password") password
+        input(type="password" class="form-control" name="password" id="password")
+      button(type="submit" class="btn btn-primary") Submit
