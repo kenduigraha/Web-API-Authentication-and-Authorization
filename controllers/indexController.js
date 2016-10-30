@@ -1,4 +1,6 @@
 'use strict'
+const User = require('../models/user')
+const passport = require('passport')
 
 let viewHome = (req, res, next) => {
   res.render('index', {title: 'Student\'s Apps'})
@@ -9,7 +11,28 @@ let viewSignUp = (req, res, next) => {
 }
 
 let processSignUp = (req, res, next) => {
-  res.render('index', {title: 'Student\'s Apps'})
+  User.register({
+    username: req.body.username,
+    email: req.body.email,
+    role: req.body.role
+  }, req.body.password, (err, user) => {
+    if(err) {
+      console.log(err)
+
+      res.redirect('/signup', {message: message})
+    }else{
+        passport.authenticate('local')(req, res, () => {
+          req.session.save((err) => {
+            if(err){
+              next(err)
+            }else{
+              console.log(req.user);
+              res.redirect('/', {title: 'Student\'s Apps', user: req.user})
+            }
+          })
+        })
+    }
+  })
 }
 
 let viewLogin = (req, res, next) => {
