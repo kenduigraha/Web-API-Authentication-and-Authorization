@@ -26,8 +26,7 @@ let processSignUp = (req, res, next) => {
             if(err){
               next(err)
             }else{
-              console.log(req.user);
-              res.redirect('/', {title: 'Student\'s Apps', user: req.user})
+              res.redirect('/'})
             }
           })
         })
