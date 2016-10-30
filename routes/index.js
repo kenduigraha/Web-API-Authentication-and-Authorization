@@ -15,7 +15,7 @@ router.get('/', controller.viewHome);
 router.get('/signup', middleware.checkSignup, controller.viewSignUp);
 
 /* process signup page. */
-router.post('/signup', controller.processSignUp);
+router.post('/signup', middleware.checkForm, controller.processSignUp);
 
 /* show login form. */
 router.get('/login', middleware.checkLogin, controller.viewLogin);

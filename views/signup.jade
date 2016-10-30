@@ -6,19 +6,30 @@ block content
     form(action="/signup" method="post")
       .form-group
         label(for="username") username 
-        input(type="text" class="form-control" name="username" id="username")
-        if err && err.name === "MissingUsernameError"
-          p(style="color: red") #{err.message}
+        input(type="text" class="form-control" name="username" id="username" value=(value ? (value.username ? value.username : '') : ''))
+        if err
+          if err.name === "MissingUsernameError"
+            p(style="color: red") #{err.message}
+          else if err.name === "ValidationError" && err.errors.username
+            p(style="color: red") #{err.errors.username.message}
+          else if err.name === "UserExistsError"
+            p(style="color: red") #{err.message}
       .form-group
         label(for="password") password
         input(type="password" class="form-control" name="password" id="password")
-        if err && err.name === "MissingPasswordError"
-          p(style="color: red") #{err.message}
+        if err
+          if err.name === "MissingPasswordError"
+            p(style="color: red") #{err.message}
+          else if err.name === "ValidationError" && err.errors.password
+            p(style="color: red") #{err.errors.password.message}
       .form-group
         label(for="email") email
-        input(type="text" class="form-control" name="email" id="email")
-        if err && err.name === "MissingEmailError"
-          p(style="color: red") #{err.message}
+        input(type="text" class="form-control" name="email" id="email" value=(value ? (value.email ? value.email : '') : ''))
+        if err
+          if err.name === "MissingEmailError"
+            p(style="color: red") #{err.email.message}
+          else if err.name === "ValidationError" && err.errors.email
+            p(style="color: red") #{err.errors.email.message}
       .form-group
         label(for="role") role
         select(name="role" class="form-control" id="role")

@@ -2,8 +2,24 @@
 
 const mongoose = require('mongoose')
 const passportLocalMongoose = require('passport-local-mongoose')
+const validate = require('mongoose-validator');
 
 let Schema = mongoose.Schema
+
+var passwordValidator = [
+  validate({
+    validator: 'isLength',
+    arguments: [3, 50],
+    message: 'Password should be between {ARGS[0]} and {ARGS[1]} characters'
+  })
+]
+
+var emailValidator = [
+  validate({
+    validator: 'isEmail',
+    message: 'Please provide a valid email address'
+  })
+]
 
 let UserSchema = new Schema({
   username : {
@@ -12,21 +28,26 @@ let UserSchema = new Schema({
   },
   password : {
     type: String,
-    required: true,
-    minlength: 5
+    validate: passwordValidator
   },
   email : {
     type: String,
-    required: true
+    required: true,
+    validate: emailValidator
   },
   role : String
 })
 
-UserSchema.plugin(passportLocalMongoose)
+UserSchema.path('password').validate(function (password) {
+  if(password.text.length < 5){
+    return false
+  }else{
+    return true
+  }
+}, 'password length should min 5 chars.')
 
-UserSchema.path('email').validate(function (email) {
-   var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-   return emailRegex.test(email.text); // Assuming email has a text attribute
-}, 'The e-mail field cannot be empty.')
+// UserSchema.path('email').validate(validator.isEmail(), 'Please provide a valid email address');
+
+UserSchema.plugin(passportLocalMongoose)
 
 module.exports = mongoose.model('Users', UserSchema)
